@@ -1,0 +1,25 @@
+{
+  "name": "teste_api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx mocha api-tests.js --reporter mochawesome"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "description": "",
+  "dependencies": {
+    "axios": "^1.7.9",
+    "chai": "^5.1.2",
+    "newman": "^6.2.1",
+    "teste_api": "file:"
+  },
+  "devDependencies": {
+    "axios": "^1.7.9",
+    "chai": "^5.1.2",
+    "mocha": "^11.0.1",
+    "mochawesome": "^7.1.3"
+  }
+}
