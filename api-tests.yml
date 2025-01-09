@@ -1,0 +1,44 @@
+name: Teste de API
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  api_tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout do Código
+      - name: Checkout do Código
+        uses: actions/checkout@v3
+
+      # Configurar Node.js
+      - name: Configurar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      # Instalar Dependências
+      - name: Instalar Dependências
+        run: npm install
+
+      # Garantir Permissões (se necessário)
+      - name: Garantir Permissões
+        run: chmod -R 777 .
+
+      # Executar Testes
+      - name: Executar Testes
+        run: npm test
+
+      # Upload do Relatório de Testes
+      - name: Upload do Relatório de Testes
+        uses: actions/upload-artifact@v3
+        with:
+          name: relatorio-de-testes
+          path: reports/report.html
